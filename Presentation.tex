@@ -4,11 +4,6 @@
 \usepackage{multicol}
 \usepackage{tikz}
 
-<<<<<<< HEAD
-\usetikzlibrary{"trees", "arrows"}
-
-\usetheme[language=english,footline=sections,faculty=tw,usecolors,framenumber,totalframenumber]{UniversiteitGent}
-=======
 \usetheme[language=english,footline=sections,faculty=tw,usecolors,framenumber,totalframenumber]{UniversiteitGent}
 
 \usetikzlibrary{arrows}
@@ -17,7 +12,7 @@
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{positioning}
-
+\tikzset{hide on/.code={\only<#1>{\color{white}}}}
 \tikzset{
 	invisible/.style={opacity=0},
 	visible on/.style={alt=#1{}{invisible}},
@@ -44,7 +39,7 @@
 	arn_tr/.style = {treenode, regular polygon, regular   polygon sides=3, ugentblue, draw=ugentblue, fill=ugent-pp,
 		text width=1em, very thick},%red tree node
 }
->>>>>>> 3d0daff2d2864d9a5add30525db8aeb23cc239a6
+
 
 \AtBeginSection[]
 {
@@ -82,27 +77,32 @@
 		every node/.style = {shape=rectangle, rounded corners,
 			draw, align=center,
 			top color=white, bottom color=blue!20}]]
+		\only<5>{}
 		\node {Headaches}
-		child { node {Primary headaches} }
-		child { node {Secondary headaches}};
+		child[visible on=<2->] { 
+			node {Primary headaches} 
+				child[visible on=<4->] {
+					node {Migraine}
+						child[visible on=<5->] {
+							node {Aura}
+						}
+						child[visible on=<5->]{
+							node {No aura}
+						}
+				}
+				child[visible on=<4->] {
+					node {Tension}
+				}
+				child[visible on=<4->] {
+					node {Cluster}
+				}
+		}
+		child[visible on=<3->] { node {Secondary headaches}};
 		\end{tikzpicture}
 		\caption{Headaches overview}
 	\end{figure}
 \end{frame}
 
-\begin{frame}{Headaches}
-	\begin{figure}[!h]
-		\begin{tikzpicture}[sibling distance=10em,
-		every node/.style = {shape=rectangle, rounded corners,
-			draw, align=center,
-			top color=white, bottom color=blue!20}]]
-		\node {Headaches}
-		child { node[fill={rgb:red,1;green,2;blue,5}] {Primary headaches} }
-		child { node {Secondary headaches}};
-		\end{tikzpicture}
-		\caption{Headaches overview}
-	\end{figure}
-\end{frame}
 
 % section intro (end)
 \section{Platform requirements}
