@@ -20,52 +20,20 @@
 
 
 
-\usetikzlibrary{arrows}
-\usetikzlibrary{fit}
-\usetikzlibrary{calc}
-\usetikzlibrary{backgrounds}
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary{positioning}
+%\usetikzlibrary{arrows}
+%\usetikzlibrary{fit}
+%\usetikzlibrary{calc}
+%\usetikzlibrary{backgrounds}
+%\usetikzlibrary{shapes.geometric}
+%\usetikzlibrary{positioning}
 
-\tikzset{
-    invisible/.style={opacity=0},
-    visible on/.style={alt=#1{}{invisible}},
-    alt/.code args={<#1>#2#3}{%
-      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
-    },
-  level/.style={sibling distance = 4cm/#1,level distance = 1.5cm},
-  treenode/.style = {align=center, inner sep=0pt, text centered,
-    font=\ttfamily},
-  arn_i/.style = {treenode, circle, white, draw=ugentblue,
-    fill=ugentyellow!50, text width=1.5em},% arbre rouge noir, noeud noir
-  arn_l/.style = {treenode, circle, ugentblue, draw=ugentblue, fill=ugentyellow,
-    text width=1.5em, very thick},% leaf node
-  arn_x/.style = {treenode, circle, white, draw=ugentblue, fill=ugent-pp,
-    text width=1.5em, very thick},% red
-  arn_y/.style = {treenode, circle, white, draw=ugentblue, fill=ugent-tw,
-    text width=1.5em, very thick},% blue
-  arn_0/.style = {treenode, draw=none,
-    fill=none, text width=0},% hidden node
-  arn_s/.style = {treenode, circle,
-    fill=ugentblue, text width=0.75em},%small node
-  arn_t/.style = {treenode, regular polygon, regular   polygon sides=3, ugentblue, draw=ugentblue, fill=ugentyellow,
-    text width=1em, very thick},%tree node
-  arn_tr/.style = {treenode, regular polygon, regular   polygon sides=3, ugentblue, draw=ugentblue, fill=ugent-pp,
-    text width=1em, very thick},%red tree node
-}
-
-
-
-\AtBeginSection{
-	
-\begin{frame}<beamer>[shrink]{Overview} 
-\small
-
-\begin{multicols}{2}
-	\tableofcontents[currentsection,hideothersubsections]
-\end{multicols}
-
-\end{frame}
+\AtBeginSection[]
+{
+	\begin{frame}<beamer>
+		\begin{multicols}{2}
+			\tableofcontents[currentsection,hideothersubsections]
+		\end{multicols}
+	\end{frame}
 }
 
 
@@ -84,6 +52,7 @@
 \begin{frame}
 	\titlepage
 \end{frame}
+
 \section{Intro}
 \label{sec:intro}
 \begin{frame}{Fylogenie verschilt}
