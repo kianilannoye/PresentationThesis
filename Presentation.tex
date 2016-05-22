@@ -6,12 +6,15 @@
 
 \usetheme[language=english,footline=sections,faculty=tw,usecolors,framenumber,totalframenumber]{UniversiteitGent}
 
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
 \usetikzlibrary{arrows}
 \usetikzlibrary{fit}
 \usetikzlibrary{calc}
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{positioning}
+
 \tikzset{hide on/.code={\only<#1>{\color{white}}}}
 \tikzset{
 	invisible/.style={opacity=0},
@@ -97,7 +100,6 @@
 		}
 		child[visible on=<3->] { node {Secondary headaches}};
 		\end{tikzpicture}
-		\caption{Headaches overview}
 	\end{figure}
 \end{frame}
 
@@ -120,13 +122,35 @@
 \subsection*{Introduction}
 
 \begin{frame}{Many different induction algorithms}
-	\begin{itemize}
-		\item QUEST
-		\item CART
-		\item C4.5 (C5.0)
-		\item $\ldots$
-	\end{itemize} \vspace{2em}
-	\textbf{$\rightarrow$ Which one is the best?}
+	\begin{columns}
+		\begin{column}{0.25\textwidth}
+			\centering
+			\begin{figure}
+				\includegraphics[width=\textwidth]{figures/oak.jpg}
+				\caption{C4.5 (C5.0)}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.25\textwidth}
+			\centering
+			\begin{figure}
+				\includegraphics[width=\textwidth]{figures/berk.jpg}
+				\caption{CART}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.25\textwidth}
+			\centering
+			\begin{figure}
+				\includegraphics[width=\textwidth]{figures/spar.jpg}
+				\caption{QUEST}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.25\textwidth}
+			\centering
+			$\ldots$
+		\end{column}
+	\end{columns}
+	
+	\textbf{$\rightarrow$ Which tree is the most beautiful?}
 \end{frame}
 
 \begin{frame}{Current ensembles lack interpretability}
@@ -217,6 +241,33 @@
 \end{frame}
 
 \subsection*{Merging different decision trees}
+
+\begin{frame}{Decision tree $\rightarrow$ decision space}
+	\begin{block}{Converting decision trees to decision spaces}
+		We can define a one-to-one mapping between a decision tree and a set of $k$-dimensional hyperplanes ($k$ = $\#$features), called \textbf{decision~space}.	Each node in the decision tree corresponds to a hyperplane in the decision space.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Decision tree $\rightarrow$ decision space}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{figures/dt_to_space.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Merging decision spaces}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{figures/merge_space_1.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Merging decision spaces}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=1]{figures/merge_space_2.png}
+	\end{figure}
+\end{frame}
 
 \subsection*{Genetic algorithm}
 \section{Visualization - doctor dashboard}
