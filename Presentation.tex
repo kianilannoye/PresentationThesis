@@ -58,10 +58,15 @@
 
 \AtBeginSection[]
 {
-	\begin{frame}<beamer>
-		\begin{multicols}{2}
-			\tableofcontents[currentsection,hideothersubsections]
-		\end{multicols}
+	\begin{frame}
+		\begin{columns}[t]
+			\begin{column}{5cm}
+				\tableofcontents[sections={1-4},currentsection, hideothersubsections]
+			\end{column}
+			\begin{column}{5cm}
+				\tableofcontents[sections={5-8},currentsection,hideothersubsections]
+			\end{column}
+		\end{columns}
 	\end{frame}
 }
 
@@ -74,6 +79,17 @@
 \begin{document}
 \begin{frame}
 	\titlepage
+\end{frame}
+
+\begin{frame}
+	\begin{columns}[t]
+		\begin{column}{5cm}
+			\tableofcontents[sections={1-4},currentsection, hideothersubsections]
+		\end{column}
+		\begin{column}{5cm}
+			\tableofcontents[sections={5-8},currentsection,hideothersubsections]
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \section{Intro}
@@ -114,18 +130,154 @@
 		}
 		child[visible on=<3->] { node {Secondary headaches}};
 		\end{tikzpicture}
-		\caption{Headaches overview}
 	\end{figure}
 \end{frame}
-
-
+\subsection{Current process UH Ghent}
+\begin{frame}{Current process UH Ghent}
+	Current process at UH Ghent is:
+	\begin{itemize}
+		\item Not digital
+		\item cumbersome
+		\item long-lasting
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\framesubtitle{Current process at UH Ghent}
+	\begin{figure}[!h]
+		\includegraphics[width=0.5\textwidth]{figures/UZ_patient.pdf}
+	\end{figure}
+\end{frame}
+\begin{frame}
+	So there is need for a better (digital) alternative! This alternative has to:
+	\begin{itemize}
+		\item have same capabilities as current solution
+		\item be more efficient
+		\item have more functionality
+	\end{itemize}
+\end{frame}
 % section intro (end)
 \section{Platform requirements}
-\label{sec:simMess}
+\label{sec:platform_req}
+\begin{frame}
+	\frametitle{Platform requirements}
+
+
+		Our proposed alternative consists of:
+		\begin{itemize}
+			\item Headache journal: mobile app
+			\item Doctor Dashboard: web application
+			\item Machine learning module: auto-classify
+		\end{itemize}
+		\ \newline
+		Solution non-functional requirements:
+		\begin{itemize}
+			\item Security
+			\item Availability
+			\item Performance
+			\item Usability
+		\end{itemize}
+\end{frame}
+\begin{frame}
+		\frametitle{Platform requirements}
+		\begin{figure}[!h]
+			\includegraphics[width=\textwidth]{figures/system_analysis.png}
+		\end{figure}	
+	
+\end{frame}
 % section Platform requirements (end)
 \section{Mobile application}
+\begin{frame}{Mobile Application}
+	Why create a new application? 
+	\begin{block}{Competition}{}
+		\begin{itemize}
+			\item Migraine Buddy
+			\item Headache Diary
+			\item Pfizer headache journal
+		\end{itemize}
+	\end{block}
+	\pause
+	All good, but:
+	\pause
+	\begin{itemize}
+		\item none offers usable data export
+		\item none captures all data needed
+	\end{itemize} 
+\end{frame}
+\subsection{Development paradigms}
+\begin{frame}{Development paradigms}
+	Different kinds of approaches for mobile application development:
+	\begin{itemize}
+		\item Web application
+		\item Hybrid application
+		\item Native application
+	\end{itemize}
+	$\rightarrow$ How do we choose?
+\end{frame}
+\begin{frame}{Web application}
+	Webapps are developed once and can be viewed on (almost) all smartphones (via built-in web engine).\newline
+	\newline
+	$+$ ``write once, run everywhere'' $\Rightarrow$ lower cost\newline
+	$+$ No installation required\newline
+	$-$ limited use of device specific features (GPS, camera, ...)\newline
+	\textbf{$-$ Not all devices same web engines $\Rightarrow$ other view}\newline
+	$-$ No native look and feel\newline
+	\newline
+	{\Large \color{red}  $\Rightarrow$ No web application}
+\end{frame}
+
+\begin{frame}{Native application}
+	Native apps are developed once for each OS and installed on the device.\newline
+	\newline
+	$+$ Best performance (optimized machine code at compile time)\newline
+	$+$ Device specific features usable (GPS, camera, ...)\newline
+	$+$ Native look and feel\newline
+	\textbf{$-$ Write code for each OS (very costly dev + maintenance)}\newline
+	$-$ Installation required\newline
+	\newline
+	{\Large \color{red}  $\Rightarrow$ Native application?}
+\end{frame}
+
+\begin{frame}{Hybrid application}
+	Hybrid apps are developed once and installed on the device. It uses the devices internal web engine, but has more control than web applications.\newline
+	\newline
+	$+$ ``write once, run everywhere'' $\Rightarrow$ lower cost\newline
+	$+$ Better performance (semi-optimized machine code)\newline
+	$+$ Device specific features usable (GPS, camera, ...)\newline
+	$+$ Native look and feel (using libraries)\newline
+	$-$ Installation required\newline
+	\textbf{$-$ Not all devices same web engines $\Rightarrow$ other view\newline (but manageable)}
+		\vspace{0.8em}
+
+	{\Large \color{red}  $\Rightarrow$ Hybrid application?}
+\end{frame}
+
+\begin{frame}{Hybrdid vs Native}
+	\only<2>{}
+\begin{tabular}{l||ll}
+	& \textbf{\color<2>{red}Native}                                                                                                                          & \textbf{\color<2>{green}Cross-platform}                                                                                                                                                                            \\ \hline \hline
+	\textbf{+}    & \begin{tabular}[c]{@{}l@{}}+ Native UX\\ + device-specific features\\ + Better performance\end{tabular}               & \begin{tabular}[c]{@{}l@{}}+ 1 language\\ + Write once, run everywhere\\ + Less maintenance\end{tabular}                                                                \\ \hline
+	\textbf{-} & \begin{tabular}[c]{@{}l@{}}- Multiple languages\\ - Time consuming \\ \ (development)\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Slower (lower performance)\\ - Less device specific\\ \hspace{0.4em}  features\\ - Harder to release online\\ \hspace{0.4em} (Play Store/App Store)\end{tabular}
+\end{tabular}
+\end{frame}
+\subsection{Chronicals}
+\begin{frame}
+	 \begin{tabular}{cl}  
+	 	\begin{tabular}{c}
+			\includegraphics[height=0.7\paperheight]{figures/chronicals.png}
+	 	\end{tabular}
+	 	& \begin{tabular}{l}
+			 \parbox{0.4\linewidth}{
+			 	\centering
+				{\Huge{Chronicals}\newline}
+				\newline
+				\includegraphics[height=0.3\paperheight]{figures/QR_code.png}
+			}
+	 	\end{tabular}  \\
+	 \end{tabular}
+\end{frame}
+
 \section{Backend and data exposure}
-\section{Machine learning - decision trees}
+\section{Machine learning - DT's}
 
 \subsection*{Why decision trees?}
 
@@ -133,7 +285,7 @@
 
 \subsection*{Ensemble techniques}
 
-\section{Genetic merging of decision trees}
+\section{Genetic merging of DT's}
 \subsection*{Introduction}
 
 \begin{frame}{Many different induction algorithms}
@@ -233,10 +385,10 @@
 	
 \end{frame}
 
-\subsection*{Merging different decision trees}
+\subsection*{Merging different DT's}
 
 \subsection*{Genetic algorithm}
-\section{Visualization - doctor dashboard}
+\section{Visualization}
 \section{Conclusion \& future work}
 
 
@@ -261,7 +413,6 @@
 \end{frame}
 
 \begin{frame}<beamer> 
-	\small
-	\tableofcontents
+	\footnotesize{\tableofcontents[hidesubsections]}
 \end{frame}
 \end{document}
