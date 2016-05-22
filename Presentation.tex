@@ -39,8 +39,6 @@
 	level/.style={sibling distance = 4cm/#1,level distance = 1.5cm},
 	treenode/.style = {align=center, inner sep=0pt, text centered,
 		font=\ttfamily},
-	arn_i/.style = {treenode, circle, white, draw=ugentblue,
-		fill=ugentyellow!50, text width=1.5em},% arbre rouge noir, noeud noir
 	arn_l/.style = {treenode, circle, ugentblue, draw=ugentblue, fill=ugentyellow,
 		text width=1.5em, very thick},% leaf node
 	arn_x/.style = {treenode, circle, white, draw=ugentblue, fill=ugent-pp,
@@ -51,10 +49,10 @@
 		fill=none, text width=0},% hidden node
 	arn_s/.style = {treenode, circle,
 		fill=ugentblue, text width=0.75em},%small node
-	arn_t/.style = {treenode, regular polygon, regular   polygon sides=3, ugentblue, draw=ugentblue, fill=ugentyellow,
-		text width=1em, very thick},%tree node
-	arn_tr/.style = {treenode, regular polygon, regular   polygon sides=3, ugentblue, draw=ugentblue, fill=ugent-pp,
-		text width=1em, very thick},%red tree node
+	rect_l/.style ={shape=rectangle, rounded corners, draw, align=center,
+		color=ugentblue, top color=ugentyellow, bottom color=ugentyellow, very thick},
+	rect_x/.style ={shape=rectangle, rounded corners, draw, align=center,
+		color=ugentblue, top color=ugent-pp, bottom color=ugent-pp, very thick},
 }
 
 
@@ -150,18 +148,19 @@
 
 \begin{frame}{Current ensembles lack interpretability}
 	\begin{block}{}
-	Boosting, bagging, random forests, etc. require majority voting (classification) or mean calculation (regression)
+	\textbf{Boosting, bagging, random forests,} etc. require majority voting (classification) or mean calculation (regression) to obtain prediction
 	\end{block}
+	
 	\vspace{3em}
 	\resizebox{0.24\textwidth}{!}{%
 	\begin{tikzpicture}
 	\node (A) [arn_l] {};
 	\node (B) [arn_l, below left=0.75cm and 0.75 cm of A] {};
 	\node (C) [arn_l, below right=0.75cm and 0.75 cm of A] {};
-	\node (D) [arn_l, below left of=B] {};
-	\node (E) [arn_l, below right of=B] {};
-	\node (F) [arn_l, below left of=C] {};
-	\node (G) [arn_x, below right of=C] {};
+	\node (D) [rect_l, below left of=B] {0};
+	\node (E) [rect_l, below right of=B] {1};
+	\node (F) [rect_l, below left of=C] {1};
+	\node (G) [rect_x, below right of=C] {0};
 	\draw (A) -- (B);
 	\draw (A) -- (C);
 	\draw (B) -- (D);
@@ -174,10 +173,10 @@
 		\node (A) [arn_l] {};
 		\node (B) [arn_l, below left=0.75cm and 0.75 cm of A] {};
 		\node (C) [arn_l, below right=0.75cm and 0.75 cm of A] {};
-		\node (D) [arn_l, below left of=B] {};
-		\node (E) [arn_l, below right of=B] {};
-		\node (F) [arn_l, below left of=C] {};
-		\node (G) [arn_x, below right of=C] {};
+		\node (D) [rect_l, below left of=B] {0};
+		\node (E) [rect_l, below right of=B] {1};
+		\node (F) [rect_l, below left of=C] {1};
+		\node (G) [rect_x, below right of=C] {0};
 		\draw (A) -- (B);
 		\draw (A) -- (C);
 		\draw (B) -- (D);
@@ -192,10 +191,10 @@
 		\node (A) [arn_l] {};
 		\node (B) [arn_l, below left=0.75cm and 0.75 cm of A] {};
 		\node (C) [arn_l, below right=0.75cm and 0.75 cm of A] {};
-		\node (D) [arn_x, below left of=B] {};
-		\node (E) [arn_l, below right of=B] {};
-		\node (F) [arn_l, below left of=C] {};
-		\node (G) [arn_l, below right of=C] {};
+		\node (D) [rect_l, below left of=B] {0};
+		\node (E) [rect_x, below right of=B] {1};
+		\node (F) [rect_l, below left of=C] {1};
+		\node (G) [rect_l, below right of=C] {0};
 		\draw (A) -- (B);
 		\draw (A) -- (C);
 		\draw (B) -- (D);
@@ -206,6 +205,32 @@
 		 }
 	
 	\framesubtitle{Stacking}
+\end{frame}
+
+\begin{frame}{Current ensembles lack interpretability}
+	\begin{block}{}
+		The final decision tree obtained by \textbf{stacking} contains uninterpretable internal nodes
+	\end{block}
+	
+	\vspace{2em}
+	
+	\begin{tikzpicture}
+	\centering
+	\node (A) [rect_l] {$x_1 \leq 5.0$};
+	\node (B) [rect_x, below left=0.75cm and 0.75 cm of A] {$outcome_{NN} \leq 2.0$};
+	\node (C) [rect_x, below right=0.75cm and 0.75 cm of A] {$outcome_{RF} \leq 4.0$};
+	\node (D) [rect_l, below left=0.5cm and 0.5cm of B] {0};
+	\node (E) [rect_l, below right=0.5cm and 0.5cm of B] {1};
+	\node (F) [rect_l, below left=0.5cm and 0.5cm of C] {0};
+	\node (G) [rect_l, below right=0.5cm and 0.5cm of C] {1};
+	\draw (A) -- (B);
+	\draw (A) -- (C);
+	\draw (B) -- (D);
+	\draw (B) -- (E);
+	\draw (C) -- (F);
+	\draw (C) -- (G);
+	\end{tikzpicture}
+	
 \end{frame}
 
 \subsection*{Merging different decision trees}
