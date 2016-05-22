@@ -1,31 +1,12 @@
 \documentclass[english]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{lipsum}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{tikz}
-\usepackage{floatrow}
-\usepackage{subfig}
-\usepackage{algorithm}
-\usepackage[noend]{algpseudocode}
-\usepackage{graphicx}
-\usepackage{capt-of}
 \usepackage{multicol}
+\usepackage{tikz}
+
+\usetikzlibrary{"trees", "arrows"}
 
 \usetheme[language=english,footline=sections,faculty=tw,usecolors,framenumber,totalframenumber]{UniversiteitGent}
-%\usetheme[faculty=tw,language=english,framenumber,totalframenumber]{UniversiteitGent}
-
-
-
-
-
-%\usetikzlibrary{arrows}
-%\usetikzlibrary{fit}
-%\usetikzlibrary{calc}
-%\usetikzlibrary{backgrounds}
-%\usetikzlibrary{shapes.geometric}
-%\usetikzlibrary{positioning}
 
 \AtBeginSection[]
 {
@@ -39,33 +20,52 @@
 
 \title{Design of a diagnosis and follow-up platform for patients with chronic headaches}
 %\subtitle{Phylogeny Comparison}
-\author{Kiani Lannoye, Gilles Vandewiele}
+\author{Kiani Lannoye \& Gilles Vandewiele}
 \mode<beamer>{\institute{Faculty of Engineering and Architecture}}
 
-
-\usepackage{ upgreek }
-\renewcommand{\tau}{\boldsymbol{\mathcal{T}}}
-
 \begin{document}
-
-
 \begin{frame}
 	\titlepage
 \end{frame}
 
 \section{Intro}
 \label{sec:intro}
-\begin{frame}{Fylogenie verschilt}
-\begin{itemize}
-	\item $\neq$ fylogenie bomen voor hetzelfde door:
-	\begin{itemize}
-		\item Verschillende data
-		\item Verschillende modelen
-		\item Verschillende algoritmes
-		\item ...
-	\end{itemize}
-\end{itemize}
+\begin{frame}{Introduction}
+	\framesubtitle{test}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=\textwidth]{figures/headache.jpg}
+	\end{figure}
 \end{frame}
+
+\begin{frame}{Headaches}
+	\begin{figure}[!h]
+		\begin{tikzpicture}[sibling distance=10em,
+		every node/.style = {shape=rectangle, rounded corners,
+			draw, align=center,
+			top color=white, bottom color=blue!20}]]
+		\node {Headaches}
+		child { node {Primary headaches} }
+		child { node {Secondary headaches}};
+		\end{tikzpicture}
+		\caption{Headaches overview}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Headaches}
+	\begin{figure}[!h]
+		\begin{tikzpicture}[sibling distance=10em,
+		every node/.style = {shape=rectangle, rounded corners,
+			draw, align=center,
+			top color=white, bottom color=blue!20}]]
+		\node {Headaches}
+		child { node[fill={rgb:red,1;green,2;blue,5}] {Primary headaches} }
+		child { node {Secondary headaches}};
+		\end{tikzpicture}
+		\caption{Headaches overview}
+	\end{figure}
+\end{frame}
+
 % section intro (end)
 \section{Platform requirements}
 \label{sec:simMess}
