@@ -1,17 +1,8 @@
 \documentclass[english]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{lipsum}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{tikz}
-\usepackage{floatrow}
-\usepackage{subfig}
-\usepackage{algorithm}
-\usepackage[noend]{algpseudocode}
-\usepackage{graphicx}
-\usepackage{capt-of}
 \usepackage{multicol}
+\usepackage{tikz}
 
 \usetheme[language=english,footline=sections,faculty=tw,usecolors,framenumber,totalframenumber]{UniversiteitGent}
 
@@ -21,7 +12,7 @@
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{positioning}
-
+\tikzset{hide on/.code={\only<#1>{\color{white}}}}
 \tikzset{
 	invisible/.style={opacity=0},
 	visible on/.style={alt=#1{}{invisible}},
@@ -47,6 +38,7 @@
 		color=ugentblue, top color=ugent-pp, bottom color=ugent-pp, very thick},
 }
 
+
 \AtBeginSection[]
 {
 	\begin{frame}<beamer>
@@ -62,30 +54,54 @@
 \author{Kiani Lannoye \& Gilles Vandewiele}
 \mode<beamer>{\institute{Faculty of Engineering and Architecture}}
 
-
-\usepackage{ upgreek }
-\renewcommand{\tau}{\boldsymbol{\mathcal{T}}}
-
 \begin{document}
-
-
 \begin{frame}
 	\titlepage
 \end{frame}
 
 \section{Intro}
 \label{sec:intro}
-\begin{frame}{Fylogenie verschilt}
-\begin{itemize}
-	\item $\neq$ fylogenie bomen voor hetzelfde door:
-	\begin{itemize}
-		\item Verschillende data
-		\item Verschillende modelen
-		\item Verschillende algoritmes
-		\item ...
-	\end{itemize}
-\end{itemize}
+\begin{frame}{Introduction}
+	\framesubtitle{test}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=\textwidth]{figures/headache.jpg}
+	\end{figure}
 \end{frame}
+
+\begin{frame}{Headaches}
+	\begin{figure}[!h]
+		\begin{tikzpicture}[sibling distance=10em,
+		every node/.style = {shape=rectangle, rounded corners,
+			draw, align=center,
+			top color=white, bottom color=blue!20}]]
+		\only<5>{}
+		\node {Headaches}
+		child[visible on=<2->] { 
+			node {Primary headaches} 
+				child[visible on=<4->] {
+					node {Migraine}
+						child[visible on=<5->] {
+							node {Aura}
+						}
+						child[visible on=<5->]{
+							node {No aura}
+						}
+				}
+				child[visible on=<4->] {
+					node {Tension}
+				}
+				child[visible on=<4->] {
+					node {Cluster}
+				}
+		}
+		child[visible on=<3->] { node {Secondary headaches}};
+		\end{tikzpicture}
+		\caption{Headaches overview}
+	\end{figure}
+\end{frame}
+
+
 % section intro (end)
 \section{Platform requirements}
 \label{sec:simMess}
