@@ -1,0 +1,136 @@
+\documentclass[english]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{floatrow}
+\usepackage{subfig}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{graphicx}
+\usepackage{capt-of}
+\usepackage{multicol}
+
+\usetheme[language=english,footline=sections,faculty=tw,usecolors,framenumber,totalframenumber]{UniversiteitGent}
+%\usetheme[faculty=tw,language=english,framenumber,totalframenumber]{UniversiteitGent}
+
+
+
+
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{fit}
+\usetikzlibrary{calc}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+
+\tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  level/.style={sibling distance = 4cm/#1,level distance = 1.5cm},
+  treenode/.style = {align=center, inner sep=0pt, text centered,
+    font=\ttfamily},
+  arn_i/.style = {treenode, circle, white, draw=ugentblue,
+    fill=ugentyellow!50, text width=1.5em},% arbre rouge noir, noeud noir
+  arn_l/.style = {treenode, circle, ugentblue, draw=ugentblue, fill=ugentyellow,
+    text width=1.5em, very thick},% leaf node
+  arn_x/.style = {treenode, circle, white, draw=ugentblue, fill=ugent-pp,
+    text width=1.5em, very thick},% red
+  arn_y/.style = {treenode, circle, white, draw=ugentblue, fill=ugent-tw,
+    text width=1.5em, very thick},% blue
+  arn_0/.style = {treenode, draw=none,
+    fill=none, text width=0},% hidden node
+  arn_s/.style = {treenode, circle,
+    fill=ugentblue, text width=0.75em},%small node
+  arn_t/.style = {treenode, regular polygon, regular   polygon sides=3, ugentblue, draw=ugentblue, fill=ugentyellow,
+    text width=1em, very thick},%tree node
+  arn_tr/.style = {treenode, regular polygon, regular   polygon sides=3, ugentblue, draw=ugentblue, fill=ugent-pp,
+    text width=1em, very thick},%red tree node
+}
+
+
+
+\AtBeginSection{
+	
+\begin{frame}<beamer>[shrink]{Overview} 
+\small
+
+\begin{multicols}{2}
+	\tableofcontents[currentsection,hideothersubsections]
+\end{multicols}
+
+\end{frame}
+}
+
+
+\title{Design of a diagnosis and follow-up platform for patients with chronic headaches}
+%\subtitle{Phylogeny Comparison}
+\author{Kiani Lannoye, Gilles Vandewiele}
+\mode<beamer>{\institute{Faculty of Engineering and Architecture}}
+
+
+\usepackage{ upgreek }
+\renewcommand{\tau}{\boldsymbol{\mathcal{T}}}
+
+\begin{document}
+
+
+\begin{frame}
+	\titlepage
+\end{frame}
+\section{Intro}
+\label{sec:intro}
+\begin{frame}{Fylogenie verschilt}
+\begin{itemize}
+	\item $\neq$ fylogenie bomen voor hetzelfde door:
+	\begin{itemize}
+		\item Verschillende data
+		\item Verschillende modelen
+		\item Verschillende algoritmes
+		\item ...
+	\end{itemize}
+\end{itemize}
+\end{frame}
+% section intro (end)
+\section{Platform requirements}
+\label{sec:simMess}
+% section Platform requirements (end)
+\section{Mobile application}
+\section{Backend and data exposure}
+\section{Machine learning - decision trees}
+\section{Mergin of decision trees}
+\section{Visualization}
+\section{Conclusion \& future work}
+
+
+
+
+% subsection rstar (end)
+
+% section concensusTeees (end)
+
+\begin{frame}<beamer> 
+  \frametitle{Bedankt}
+	  {\huge \color{ugentyellow} Bedank voor uw aandacht}\\
+	  No written word,
+	  
+	  No spoken plea,
+	  
+	  Can teach the youth what they should be,
+	  
+	  Nor all the books on all the shelves,
+	  
+	  It's what the teachers are themselves 
+\end{frame}
+
+\begin{frame}<beamer> 
+	\small
+	\tableofcontents
+\end{frame}
+\end{document}
