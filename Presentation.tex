@@ -4,9 +4,47 @@
 \usepackage{multicol}
 \usepackage{tikz}
 
+<<<<<<< HEAD
 \usetikzlibrary{"trees", "arrows"}
 
 \usetheme[language=english,footline=sections,faculty=tw,usecolors,framenumber,totalframenumber]{UniversiteitGent}
+=======
+\usetheme[language=english,footline=sections,faculty=tw,usecolors,framenumber,totalframenumber]{UniversiteitGent}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{fit}
+\usetikzlibrary{calc}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+
+\tikzset{
+	invisible/.style={opacity=0},
+	visible on/.style={alt=#1{}{invisible}},
+	alt/.code args={<#1>#2#3}{%
+		\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+	},
+	level/.style={sibling distance = 4cm/#1,level distance = 1.5cm},
+	treenode/.style = {align=center, inner sep=0pt, text centered,
+		font=\ttfamily},
+	arn_i/.style = {treenode, circle, white, draw=ugentblue,
+		fill=ugentyellow!50, text width=1.5em},% arbre rouge noir, noeud noir
+	arn_l/.style = {treenode, circle, ugentblue, draw=ugentblue, fill=ugentyellow,
+		text width=1.5em, very thick},% leaf node
+	arn_x/.style = {treenode, circle, white, draw=ugentblue, fill=ugent-pp,
+		text width=1.5em, very thick},% red
+	arn_y/.style = {treenode, circle, white, draw=ugentblue, fill=ugent-tw,
+		text width=1.5em, very thick},% blue
+	arn_0/.style = {treenode, draw=none,
+		fill=none, text width=0},% hidden node
+	arn_s/.style = {treenode, circle,
+		fill=ugentblue, text width=0.75em},%small node
+	arn_t/.style = {treenode, regular polygon, regular   polygon sides=3, ugentblue, draw=ugentblue, fill=ugentyellow,
+		text width=1em, very thick},%tree node
+	arn_tr/.style = {treenode, regular polygon, regular   polygon sides=3, ugentblue, draw=ugentblue, fill=ugent-pp,
+		text width=1em, very thick},%red tree node
+}
+>>>>>>> 3d0daff2d2864d9a5add30525db8aeb23cc239a6
 
 \AtBeginSection[]
 {
@@ -73,8 +111,90 @@
 \section{Mobile application}
 \section{Backend and data exposure}
 \section{Machine learning - decision trees}
-\section{Mergin of decision trees}
-\section{Visualization}
+
+\subsection*{Why decision trees?}
+
+\subsection*{Decision tree induction algorithms}
+
+\subsection*{Ensemble techniques}
+
+\section{Genetic merging of decision trees}
+\subsection*{Introduction}
+
+\begin{frame}{Many different induction algorithms}
+	\begin{itemize}
+		\item QUEST
+		\item CART
+		\item C4.5 (C5.0)
+		\item $\ldots$
+	\end{itemize} \vspace{2em}
+	\textbf{$\rightarrow$ Which one is the best?}
+\end{frame}
+
+\begin{frame}{Current ensembles lack interpretability}
+	\begin{block}{}
+	Boosting, bagging, random forests, etc. require majority voting (classification) or mean calculation (regression)
+	\end{block}
+	\vspace{3em}
+	\resizebox{0.24\textwidth}{!}{%
+	\begin{tikzpicture}
+	\node (A) [arn_l] {};
+	\node (B) [arn_l, below left=0.75cm and 0.75 cm of A] {};
+	\node (C) [arn_l, below right=0.75cm and 0.75 cm of A] {};
+	\node (D) [arn_l, below left of=B] {};
+	\node (E) [arn_l, below right of=B] {};
+	\node (F) [arn_l, below left of=C] {};
+	\node (G) [arn_x, below right of=C] {};
+	\draw (A) -- (B);
+	\draw (A) -- (C);
+	\draw (B) -- (D);
+	\draw (B) -- (E);
+	\draw (C) -- (F);
+	\draw (C) -- (G);
+	\end{tikzpicture}%
+	 } \resizebox{0.24\textwidth}{!}{%
+		\begin{tikzpicture}
+		\node (A) [arn_l] {};
+		\node (B) [arn_l, below left=0.75cm and 0.75 cm of A] {};
+		\node (C) [arn_l, below right=0.75cm and 0.75 cm of A] {};
+		\node (D) [arn_l, below left of=B] {};
+		\node (E) [arn_l, below right of=B] {};
+		\node (F) [arn_l, below left of=C] {};
+		\node (G) [arn_x, below right of=C] {};
+		\draw (A) -- (B);
+		\draw (A) -- (C);
+		\draw (B) -- (D);
+		\draw (B) -- (E);
+		\draw (C) -- (F);
+		\draw (C) -- (G);
+		\end{tikzpicture}%
+		 } \resizebox{0.24\textwidth}{!}{ %		
+	 	$\ldots$ %
+		}	\resizebox{0.24\textwidth}{!}{%
+		\begin{tikzpicture}
+		\node (A) [arn_l] {};
+		\node (B) [arn_l, below left=0.75cm and 0.75 cm of A] {};
+		\node (C) [arn_l, below right=0.75cm and 0.75 cm of A] {};
+		\node (D) [arn_x, below left of=B] {};
+		\node (E) [arn_l, below right of=B] {};
+		\node (F) [arn_l, below left of=C] {};
+		\node (G) [arn_l, below right of=C] {};
+		\draw (A) -- (B);
+		\draw (A) -- (C);
+		\draw (B) -- (D);
+		\draw (B) -- (E);
+		\draw (C) -- (F);
+		\draw (C) -- (G);
+		\end{tikzpicture}%
+		 }
+	
+	\framesubtitle{Stacking}
+\end{frame}
+
+\subsection*{Merging different decision trees}
+
+\subsection*{Genetic algorithm}
+\section{Visualization - doctor dashboard}
 \section{Conclusion \& future work}
 
 
