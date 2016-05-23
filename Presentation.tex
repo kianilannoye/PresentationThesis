@@ -562,7 +562,8 @@
 
 \begin{frame}{Evaluating our algorithm}
 	\begin{block}{}
-		To test how good our algorithm performs, we downloaded 5 datasets from the UCI machine learning repository. We then compared our genetic merging algorithm with the three discussed decision tree induction algorithms, using optimal parameters, feature selection when needed and k-fold cross-validation.
+		5 datasets from UCI \\
+		optimal parameters, feature selection when needed and k-fold cross-validation
 	\end{block}
 \end{frame}
 
@@ -690,19 +691,23 @@
 	\end{table}
 \end{frame}
 
-\begin{frame}{Confusion matrix}
+{\setbeamertemplate{footline}{}
+\begin{frame}{}
+	\vspace{-0.75em}
 	\begin{figure}
 		\centering
-		\includegraphics[scale=0.33]{figures/genetic_cars_10_folds.png}
+		\includegraphics[scale=0.42]{figures/genetic_cars_10_folds.png}
 	\end{figure}
-\end{frame}
+\end{frame} }
 
-\begin{frame}{Confusion matrix}
-	\begin{figure}
-		\centering
-		\includegraphics[scale=0.33]{figures/genetic_nurse_10_folds.png}
-	\end{figure}
-\end{frame}
+{\setbeamertemplate{footline}{}
+	\begin{frame}{}
+		\vspace{-0.5em}
+		\begin{figure}
+			\centering
+			\includegraphics[scale=0.42]{figures/genetic_nurse_10_folds.png}
+		\end{figure}
+	\end{frame} }
 
 \section{Visualization}
 \section{Conclusion \& future work}
