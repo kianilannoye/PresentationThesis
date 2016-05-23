@@ -3,6 +3,7 @@
 \usepackage[english]{babel}
 \usepackage{multicol}
 \usepackage{tikz}
+\usepackage{multirow}
 
 \usetheme[language=english,footline=sections,faculty=tw,usecolors,framenumber,totalframenumber]{UniversiteitGent}
 
@@ -253,7 +254,7 @@
 	{\Large \color{red}  $\Rightarrow$ Hybrid application?}
 \end{frame}
 
-\begin{frame}{Hybrdid vs Native}
+\begin{frame}{Hybrid vs Native}
 	\only<2>{}
 \begin{tabular}{l||ll}
 	& \textbf{\color<2>{red}Native}                                                                                                                          & \textbf{\color<2>{green}Cross-platform}                                                                                                                                                                            \\ \hline \hline
@@ -438,7 +439,157 @@
 	\end{figure}
 \end{frame}
 
+\begin{frame}{Pruning decision spaces}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=1]{figures/pruning.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Decision space $\rightarrow$ decision tree}
+	\begin{block}{Converting decision spaces to decision trees}
+		One-to-one mapping from decision tree to space is lost during conversion because the order is lost. Therefore, a heuristic approach must be taken, identifying hyperplane candidates and calculating a metric to choose the `best' plane.
+	\end{block}
+	
+	
+	\begin{block}{Candidate hyperplanes}
+		In order for a plane to be the next candidate node, it must be unbounded in all dimensions but one.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Decision space $\rightarrow$ decision tree}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=1]{figures/space_to_dt.png}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}{Decision space $\rightarrow$ decision tree}
+	\begin{block}{Finding `best' candidate hyperplane}
+		Apply metric function to each plane, these include:
+		\begin{itemize}
+			\item information gain and Gini from C4.5 and CART respectively
+			\item pick plane from most correlated feature ($\chi^2$- and ANOVA $F$-test from QUEST)
+			\item pick plane that divide space in two most equal subspaces (using surface/volume or counting number of planes)
+			\item combination
+		\end{itemize}
+	\end{block}
+	
+\end{frame}
+
+
 \subsection*{Genetic algorithm}
+\begin{frame}{Genetic algorithm}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.25]{figures/genetic.png}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}{Splitting the data}
+	\vspace{-1em}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.5]{figures/split_data.png}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}{Generate different decision trees}
+	\vspace{-2em}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.8]{figures/generate_dt.png}
+	\end{figure}	
+\end{frame}
+
+\begin{frame}{Generate different decision trees}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=1]{figures/dt_population.png}
+	\end{figure}	
+\end{frame}
+
+{\setbeamertemplate{footline}{}
+\begin{frame}{Genetic merging}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.7]{figures/genetic_merging.png}
+	\end{figure}
+\end{frame} }
+
+{\setbeamertemplate{footline}{}
+\begin{frame}{Final iteration}
+	\vspace{-1em}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.7]{figures/final_iteration.png}
+	\end{figure}
+\end{frame} }
+
+
+
+\begin{frame}{Evaluating our algorithm}
+	\begin{block}{}
+		To test how good our algorithm performs, we downloaded 5 datasets from the UCI machine learning repository. We then compared our genetic merging algorithm with the three discussed decision tree induction algorithms, using optimal parameters, feature selection when needed and k-fold cross-validation.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Heart disease dataset}
+	\begin{columns}
+		\begin{column}{0.35\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.75]{figures/heart.jpg}
+			\end{figure}
+		\end{column}
+		
+		\begin{column}{0.65\textwidth}
+			\begin{itemize}
+				\item medical dataset
+				\item 270 samples
+				\item 13 features: 6 continuous (max heartrate), 7 discrete (sex)
+				\item 2 classes: sick or healthy
+				\item more healthy than sick samples
+				\item false negatives can cost lives!
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Car evaluation dataset}
+\end{frame}
+
+\begin{frame}{Iris flowers dataset}
+\end{frame}
+
+\begin{frame}{Shuttle classification dataset}
+\end{frame}
+
+\begin{frame}{Nursery application dataset}
+\end{frame}
+
+\begin{frame}{}
+	\vspace{-1em}
+	\begin{table}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline \textbf{Dataset} & \textbf{Folds} & \textbf{C4.5} & \textbf{CART} & \textbf{QUEST} & \textbf{Genetic} \\ \hline
+			\multirow{2}{*}{Heart disease} & 5 & $\textbf{0.8067}$ & $0.7844$ & $0.7844$ & $\textbf{0.8067}$ \\
+			& 10 & $\textbf{0.8104}$ & $0.7732$ & $0.7881$ & $0.7993$ \\ \hline
+			\multirow{2}{*}{Iris} & 3 & $0.9533$ & $0.9467$ & $0.9467$ & $\textbf{0.96}$ \\ & 5 & $0.9467$ & $0.9333$ & $0.9467$ & $\textbf{0.9533}$ \\ \hline
+			\multirow{3}{*}{Cars} & 3 & $\textbf{0.9722}$ & $0.9693$ & $0.9229$ & $0.9693$ \\
+			& 5 & $0.9711$ & $0.9682$ & $0.9241$ & $\textbf{0.9786}$ \\
+			& 10 & $0.9756$ & $0.9751$ & $0.9265$ & $\textbf{0.9803}$ \\ \hline
+			\multirow{3}{*}{Shuttle} & 3 & $0.9987$ & $0.9983$ & $0.9964$ & $\textbf{0.9988}$  \\
+			& 5 & $0.9986$ & $0.9981$ & $0.9962$ & $\textbf{0.9988}$ \\
+			& 10 & $0.9990$ & $0.9987$ & $0.9941 $ & $\textbf{0.9992}$ \\ \hline
+			\multirow{3}{*}{Nursery} & 3 & $0.9890$ & $0.9431$ & $0.9147$ & $\textbf{0.9914}$ \\
+			& $5$ & $0.9918$ & $0.9498$ & $0.9251$ & $\textbf{0.9958}$ \\
+			& 10 & $0.9937$ & $0.9568$ & $0.9259$ & $\textbf{0.9954}$ \\ \hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+
 \section{Visualization}
 \section{Conclusion \& future work}
 
