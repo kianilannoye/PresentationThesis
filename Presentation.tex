@@ -696,48 +696,80 @@
 	\end{columns}
 \end{frame}
 
-\begin{frame}{}
-	\vspace{-1em}
-	\begin{table}
-		\begin{tabular}{|c|c|c|c|c|c|}
-			\hline \textbf{Dataset} & \textbf{Folds} & \textbf{C4.5} & \textbf{CART} & \textbf{QUEST} & \textbf{Genetic} \\ \hline
-			\multirow{2}{*}{Heart disease} & 5 & \underline{$\textbf{0.8067}$} & $0.7844$ & $0.7844$ & \underline{$\textbf{0.8067}$} \\
-			& 10 & \underline{$\textbf{0.8104}$} & $0.7732$ & $0.7881$ & $0.7993$ \\ \hline
-			\multirow{2}{*}{Iris} & 3 & $0.9533$ & $0.9467$ & $0.9467$ & \underline{$\textbf{0.96}$} \\ & 5 & $0.9467$ & $0.9333$ & $0.9467$ & \underline{$\textbf{0.9533}$} \\ \hline
-			\multirow{3}{*}{Cars} & 3 & \underline{$\textbf{0.9722}$} & $0.9693$ & $0.9229$ & $0.9693$ \\
-			& 5 & $0.9711$ & $0.9682$ & $0.9241$ & \underline{$\textbf{0.9786}$} \\
-			& 10 & $0.9756$ & $0.9751$ & $0.9265$ & \underline{$\textbf{0.9803}$} \\ \hline
-			\multirow{3}{*}{Shuttle} & 3 & $0.9987$ & $0.9983$ & $0.9964$ & \underline{$\textbf{0.9988}$}  \\
-			& 5 & $0.9986$ & $0.9981$ & $0.9962$ & \underline{$\textbf{0.9988}$} \\
-			& 10 & $0.9990$ & $0.9987$ & $0.9941 $ & \underline{$\textbf{0.9992}$} \\ \hline
-			\multirow{3}{*}{Nursery} & 3 & $0.9890$ & $0.9431$ & $0.9147$ & \underline{$\textbf{0.9914}$} \\
-			& $5$ & $0.9918$ & $0.9498$ & $0.9251$ & \underline{$\textbf{0.9958}$} \\
-			& 10 & $0.9937$ & $0.9568$ & $0.9259$ & \underline{$\textbf{0.9954}$} \\ \hline
-		\end{tabular}
-	\end{table}
-\end{frame}
 
-{\setbeamertemplate{footline}{}
-\begin{frame}{}
-	\vspace{-0.75em}
-	\begin{figure}
-		\centering
-		\includegraphics[scale=0.42]{figures/genetic_cars_10_folds.png}
-	\end{figure}
-\end{frame} }
-
-{\setbeamertemplate{footline}{}
+{\setbeamertemplate{footline}{\leavevmode%
+		\hbox{%
+			\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+				\usebeamerfont{author in head/foot}\insertsection
+			\end{beamercolorbox}%
+			\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+				\usebeamerfont{title in head/foot}\insertsubsection
+			\end{beamercolorbox}%
+			\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+				%			\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+				\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+			\end{beamercolorbox}}%
+			\vskip0pt%
+		}
 	\begin{frame}{}
-		\vspace{-0.5em}
-		\begin{figure}
-			\centering
-			\includegraphics[scale=0.42]{figures/genetic_nurse_10_folds.png}
-		\end{figure}
+		\vspace{-0.75em}
+		\only<1>{
+			\begin{table}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline \textbf{Dataset} & \textbf{Folds} & \textbf{C4.5} & \textbf{CART} & \textbf{QUEST} & \textbf{Genetic} \\ \hline
+					\multirow{2}{*}{Heart disease} & 5 & \underline{$\textbf{0.8067}$} & $0.7844$ & $0.7844$ & \underline{$\textbf{0.8067}$} \\
+					& 10 & \underline{$\textbf{0.8104}$} & $0.7732$ & $0.7881$ & $0.7993$ \\ \hline
+					\multirow{2}{*}{Iris} & 3 & $0.9533$ & $0.9467$ & $0.9467$ & \underline{$\textbf{0.96}$} \\ & 5 & $0.9467$ & $0.9333$ & $0.9467$ & \underline{$\textbf{0.9533}$} \\ \hline
+					\multirow{3}{*}{Cars} & 3 & \underline{$\textbf{0.9722}$} & $0.9693$ & $0.9229$ & $0.9693$ \\
+					& 5 & $0.9711$ & $0.9682$ & $0.9241$ & \underline{$\textbf{0.9786}$} \\
+					& 10 & $0.9756$ & $0.9751$ & $0.9265$ & \underline{$\textbf{0.9803}$} \\ \hline
+					\multirow{3}{*}{Shuttle} & 3 & $0.9987$ & $0.9983$ & $0.9964$ & \underline{$\textbf{0.9988}$}  \\
+					& 5 & $0.9986$ & $0.9981$ & $0.9962$ & \underline{$\textbf{0.9988}$} \\
+					& 10 & $0.9990$ & $0.9987$ & $0.9941 $ & \underline{$\textbf{0.9992}$} \\ \hline
+					\multirow{3}{*}{Nursery} & 3 & $0.9890$ & $0.9431$ & $0.9147$ & \underline{$\textbf{0.9914}$} \\
+					& $5$ & $0.9918$ & $0.9498$ & $0.9251$ & \underline{$\textbf{0.9958}$} \\
+					& 10 & $0.9937$ & $0.9568$ & $0.9259$ & \underline{$\textbf{0.9954}$} \\ \hline
+				\end{tabular}
+			\end{table}	
+		}
+		\only<2>{
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.42]{figures/genetic_nurse_10_folds.png}
+			\end{figure}
+		}
 	\end{frame} }
 
 \section{Visualization}
 \begin{frame}{Docter Dashboard}
+	\textbf{\Large Maarten Vanden Berghe}
+	\only<1>{
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{figures/aanvallen.png}
+		\end{figure}
+	}
 	
+	\only<2>{
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{figures/maandoverzicht.png}
+		\end{figure}
+	}
+	
+	\only<3>{
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{figures/statistieken2.png}
+		\end{figure}
+	}
+	
+	\only<4>{
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{figures/uitloggen.png}
+		\end{figure}
+	}
 \end{frame}
 \section{Conclusion \& future work}
 
