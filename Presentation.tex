@@ -5,6 +5,12 @@
 \usepackage{tikz}
 \usepackage{multirow}
 
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+
 \usetheme[language=english,footline=sections,faculty=tw,usecolors,framenumber,totalframenumber]{UniversiteitGent}
 
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
@@ -153,9 +159,9 @@
 \begin{frame}
 	So there is need for a better (digital) alternative! This alternative has to:
 	\begin{itemize}
-		\item have same capabilities as current solution
+		\item capture at least the same information as current solution
 		\item be more efficient
-		\item have more functionality
+		\item provide a second opinion for the doctors (auto-diagnose)
 	\end{itemize}
 \end{frame}
 % section intro (end)
@@ -264,6 +270,12 @@
 \end{frame}
 \subsection{Chronicals}
 \begin{frame}
+				\centering
+	\only<1>{\begin{tabular}{c}
+			\centering
+			\includegraphics[height=0.7\paperheight]{figures/chronicals.png}
+		\end{tabular}}
+	\only<2>{	
 	 \begin{tabular}{cl}  
 	 	\begin{tabular}{c}
 			\includegraphics[height=0.7\paperheight]{figures/chronicals.png}
@@ -277,8 +289,28 @@
 			}
 	 	\end{tabular}  \\
 	 \end{tabular}
+	}
 \end{frame}
-
+\begin{frame}{Chronicals}
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{figures/add_headache_5.png}
+	\end{subfigure}
+	\pause
+	~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{figures/add_headache_6.png}
+	\end{subfigure}
+	\pause
+	~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{figures/manual.png}
+	\end{subfigure}
+\end{figure}
+\end{frame}
 \section{Backend and data exposure}
 \section{Machine learning - DT's}
 
