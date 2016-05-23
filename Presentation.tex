@@ -589,15 +589,84 @@
 \end{frame}
 
 \begin{frame}{Car evaluation dataset}
+	\begin{columns}
+		\begin{column}{0.35\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=1]{figures/car.jpg}
+			\end{figure}
+		\end{column}
+		
+		\begin{column}{0.65\textwidth}
+			\begin{itemize}
+				\item 1725 samples
+				\item only 6 features, all categories (price, doors, $\ldots$)
+				\item 4 classes: unacceptable, acceptable, good and very good
+				\item VERY imbalanced (70\% unacc, 22.2\% acc)
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Iris flowers dataset}
+	\begin{columns}
+		\begin{column}{0.35\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.75]{figures/iris.jpg}
+			\end{figure}
+		\end{column}
+		
+		\begin{column}{0.65\textwidth}
+			\begin{itemize}
+				\item very small dimensions
+				\item 150 flowers
+				\item 4 continuous features (petal width and sepal length)
+				\item 3 classes: setosa, versicolor, virginica
+				\item perfectly balanced (50-50-50)
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Shuttle classification dataset}
+	\begin{columns}
+		\begin{column}{0.35\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.75]{figures/shuttle.jpg}
+			\end{figure}
+		\end{column}
+		
+		\begin{column}{0.65\textwidth}
+			\begin{itemize}
+				\item originally: 58000 samples corresponding to aircrafts
+				\item here: 14500 samples
+				\item 9 numerical attributes
+				\item 7 different types of shuttles: 2 of them contained less than 10 samples (discarded)
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Nursery application dataset}
+	\begin{columns}
+		\begin{column}{0.35\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.75]{figures/nursery.jpg}
+			\end{figure}
+		\end{column}
+		
+		\begin{column}{0.65\textwidth}
+			\begin{itemize}
+				\item 12960 samples (applications for nursery school)
+				\item 8 categorical features
+				\item 5 classes: not recommended, recommended, very recommended, priority and special priority
+				\item only 2 samples were recommended (discarded)
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{}
@@ -621,6 +690,19 @@
 	\end{table}
 \end{frame}
 
+\begin{frame}{Confusion matrix}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.33]{figures/genetic_cars_10_folds.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Confusion matrix}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.33]{figures/genetic_nurse_10_folds.png}
+	\end{figure}
+\end{frame}
 
 \section{Visualization}
 \section{Conclusion \& future work}
