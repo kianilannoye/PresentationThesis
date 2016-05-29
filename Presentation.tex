@@ -4,7 +4,7 @@
 \usepackage{multicol}
 \usepackage{tikz}
 \usepackage{multirow}
-
+\usepackage{changepage}
 \usepackage{subcaption}
 \captionsetup{compatibility=false}
 
@@ -211,55 +211,55 @@
 		\item none captures all data needed
 	\end{itemize} 
 \end{frame}
-\subsection{Development paradigms}
-\begin{frame}{Development paradigms}
-	Different kinds of approaches for mobile application development:
-	\begin{itemize}
-		\item Web application
-		\item Hybrid application
-		\item Native application
-	\end{itemize}
-	$\rightarrow$ How do we choose?
-\end{frame}
-\begin{frame}{Web application}
-	Webapps are developed once and can be viewed on (almost) all smartphones (via built-in web engine).\newline
-	\newline
-	$+$ ``write once, run everywhere'' $\Rightarrow$ lower cost\newline
-	$+$ No installation required\newline
-	$-$ limited use of device specific features (GPS, camera, ...)\newline
-	\textbf{$-$ Not all devices same web engines $\Rightarrow$ other view}\newline
-	$-$ No native look and feel\newline
-	\newline
-	{\Large \color{red}  $\Rightarrow$ No web application}
-\end{frame}
+%\subsection{Development paradigms}
+%\begin{frame}{Development paradigms}
+%	Different kinds of approaches for mobile application development:
+%	\begin{itemize}
+%		\item Web application
+%		\item Hybrid application
+%		\item Native application
+%	\end{itemize}
+%	$\rightarrow$ How do we choose?
+%\end{frame}
+%\begin{frame}{Web application}
+%	Webapps are developed once and can be viewed on (almost) all smartphones (via built-in web engine).\newline
+%	\newline
+%	$+$ ``write once, run everywhere'' $\Rightarrow$ lower cost\newline
+%	$+$ No installation required\newline
+%	$-$ limited use of device specific features (GPS, camera, ...)\newline
+%	\textbf{$-$ Not all devices same web engines $\Rightarrow$ other view}\newline
+%	$-$ No native look and feel\newline
+%	\newline
+%	{\Large \color{red}  $\Rightarrow$ No web application}
+%\end{frame}
+%
+%\begin{frame}{Native application}
+%	Native apps are developed once for each OS and installed on the device.\newline
+%	\newline
+%	$+$ Best performance (optimized machine code at compile time)\newline
+%	$+$ Device specific features usable (GPS, camera, ...)\newline
+%	$+$ Native look and feel\newline
+%	\textbf{$-$ Write code for each OS (very costly dev + maintenance)}\newline
+%	$-$ Installation required\newline
+%	\newline
+%	{\Large \color{red}  $\Rightarrow$ Native application?}
+%\end{frame}
+%
+%\begin{frame}{Hybrid application}
+%	Hybrid apps are developed once and installed on the device. It uses the devices internal web engine, but has more control than web applications.\newline
+%	\newline
+%	$+$ ``write once, run everywhere'' $\Rightarrow$ lower cost\newline
+%	$+$ Better performance (semi-optimized machine code)\newline
+%	$+$ Device specific features usable (GPS, camera, ...)\newline
+%	$+$ Native look and feel (using libraries)\newline
+%	$-$ Installation required\newline
+%	\textbf{$-$ Not all devices same web engines $\Rightarrow$ other view\newline (but manageable)}
+%		\vspace{0.8em}
+%
+%	{\Large \color{red}  $\Rightarrow$ Hybrid application?}
+%\end{frame}
 
-\begin{frame}{Native application}
-	Native apps are developed once for each OS and installed on the device.\newline
-	\newline
-	$+$ Best performance (optimized machine code at compile time)\newline
-	$+$ Device specific features usable (GPS, camera, ...)\newline
-	$+$ Native look and feel\newline
-	\textbf{$-$ Write code for each OS (very costly dev + maintenance)}\newline
-	$-$ Installation required\newline
-	\newline
-	{\Large \color{red}  $\Rightarrow$ Native application?}
-\end{frame}
-
-\begin{frame}{Hybrid application}
-	Hybrid apps are developed once and installed on the device. It uses the devices internal web engine, but has more control than web applications.\newline
-	\newline
-	$+$ ``write once, run everywhere'' $\Rightarrow$ lower cost\newline
-	$+$ Better performance (semi-optimized machine code)\newline
-	$+$ Device specific features usable (GPS, camera, ...)\newline
-	$+$ Native look and feel (using libraries)\newline
-	$-$ Installation required\newline
-	\textbf{$-$ Not all devices same web engines $\Rightarrow$ other view\newline (but manageable)}
-		\vspace{0.8em}
-
-	{\Large \color{red}  $\Rightarrow$ Hybrid application?}
-\end{frame}
-
-\begin{frame}{Hybrid vs Native}
+\begin{frame}{Cross platform vs Native}
 	\only<2>{}
 \begin{tabular}{l||ll}
 	& \textbf{\color<2>{red}Native}                                                                                                                          & \textbf{\color<2>{green}Cross-platform}                                                                                                                                                                            \\ \hline \hline
@@ -580,121 +580,138 @@
 	\vspace{-1em}
 	\begin{figure}
 		\centering
-		\includegraphics[scale=0.7]{figures/final_iteration.png}
+		\includegraphics[scale=1]{figures/final_iteration.png}
 	\end{figure}
 \end{frame} }
+\begin{frame}
+	\begin{figure}
+		\centering
+			\includegraphics[width=\textwidth]{figures/chart_patients.pdf}
+	\end{figure}
 
-
+\end{frame}
 
 \begin{frame}{Evaluating our algorithm}
 	\begin{block}{}
 		5 datasets from UCI \\
-		optimal parameters, feature selection when needed and k-fold cross-validation
+		optimal parameters, feature selection when needed and k-fold CV
 	\end{block}
+\begin{adjustwidth}{-0.4cm}{}
+	\begin{table}
+			\begin{tabular}{l|ccccc}
+				\textbf{Name}    & \multicolumn{1}{l}{\textbf{\#Samples}} & \multicolumn{1}{l}{\textbf{\#Disc}} & \multicolumn{1}{l}{\textbf{\#Cont}} & \multicolumn{1}{l}{\textbf{\#Class}} & \multicolumn{1}{l}{\textbf{Imbalance rate}} \\ \hline
+				\textbf{Heart}   & 270                                    & 7                                   & 6                                   & 2                                      & 0.058                                       \\
+				\textbf{Car}     & 1728                                   & 6                                   & 0                                   & 4                                      & 0.225                                       \\
+				\textbf{Iris}    & 150                                    & 0                                   & 4                                   & 3                                      & 0                                           \\
+				\textbf{Shuttle} & 14500                                  & 0                                   & 9                                   & 7                                      & 0.18308                                     \\
+				\textbf{Nursery} & 12960                                  & 8                                   & 0                                   & 5                                      & 0.1498      
+			\end{tabular}
+		\end{table}
+	\end{adjustwidth}
 \end{frame}
-
-\begin{frame}{Heart disease dataset}
-	\begin{columns}
-		\begin{column}{0.35\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[scale=0.75]{figures/heart.jpg}
-			\end{figure}
-		\end{column}
-		
-		\begin{column}{0.65\textwidth}
-			\begin{itemize}
-				\item medical dataset
-				\item 270 samples
-				\item 13 features: 6 continuous (max heartrate), 7 discrete (sex)
-				\item 2 classes: sick or healthy
-				\item more healthy than sick samples
-				\item false negatives can cost lives!
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}{Car evaluation dataset}
-	\begin{columns}
-		\begin{column}{0.35\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[scale=1]{figures/car.jpg}
-			\end{figure}
-		\end{column}
-		
-		\begin{column}{0.65\textwidth}
-			\begin{itemize}
-				\item 1725 samples
-				\item only 6 features, all categories (price, doors, $\ldots$)
-				\item 4 classes: unacceptable, acceptable, good and very good
-				\item VERY imbalanced (70\% unacc, 22.2\% acc)
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}{Iris flowers dataset}
-	\begin{columns}
-		\begin{column}{0.35\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[scale=0.75]{figures/iris.jpg}
-			\end{figure}
-		\end{column}
-		
-		\begin{column}{0.65\textwidth}
-			\begin{itemize}
-				\item very small dimensions
-				\item 150 flowers
-				\item 4 continuous features (petal width and sepal length)
-				\item 3 classes: setosa, versicolor, virginica
-				\item perfectly balanced (50-50-50)
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}{Shuttle classification dataset}
-	\begin{columns}
-		\begin{column}{0.35\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[scale=0.75]{figures/shuttle.jpg}
-			\end{figure}
-		\end{column}
-		
-		\begin{column}{0.65\textwidth}
-			\begin{itemize}
-				\item originally: 58000 samples corresponding to aircrafts
-				\item here: 14500 samples
-				\item 9 numerical attributes
-				\item 7 different types of shuttles: 2 of them contained less than 10 samples (discarded)
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}{Nursery application dataset}
-	\begin{columns}
-		\begin{column}{0.35\textwidth}
-			\begin{figure}
-				\centering
-				\includegraphics[scale=0.75]{figures/nursery.jpg}
-			\end{figure}
-		\end{column}
-		
-		\begin{column}{0.65\textwidth}
-			\begin{itemize}
-				\item 12960 samples (applications for nursery school)
-				\item 8 categorical features
-				\item 5 classes: not recommended, recommended, very recommended, priority and special priority
-				\item only 2 samples were recommended (discarded)
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
+%
+%\begin{frame}{Heart disease dataset}
+%	\begin{columns}
+%		\begin{column}{0.35\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[scale=0.75]{figures/heart.jpg}
+%			\end{figure}
+%		\end{column}
+%		
+%		\begin{column}{0.65\textwidth}
+%			\begin{itemize}
+%				\item medical dataset
+%				\item 270 samples
+%				\item 13 features: 6 continuous (max heartrate), 7 discrete (sex)
+%				\item 2 classes: sick or healthy
+%				\item more healthy than sick samples
+%				\item false negatives can cost lives!
+%			\end{itemize}
+%		\end{column}
+%	\end{columns}
+%\end{frame}
+%
+%\begin{frame}{Car evaluation dataset}
+%	\begin{columns}
+%		\begin{column}{0.35\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[scale=1]{figures/car.jpg}
+%			\end{figure}
+%		\end{column}
+%		
+%		\begin{column}{0.65\textwidth}
+%			\begin{itemize}
+%				\item 1725 samples
+%				\item only 6 features, all categories (price, doors, $\ldots$)
+%				\item 4 classes: unacceptable, acceptable, good and very good
+%				\item VERY imbalanced (70\% unacc, 22.2\% acc)
+%			\end{itemize}
+%		\end{column}
+%	\end{columns}
+%\end{frame}
+%
+%\begin{frame}{Iris flowers dataset}
+%	\begin{columns}
+%		\begin{column}{0.35\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[scale=0.75]{figures/iris.jpg}
+%			\end{figure}
+%		\end{column}
+%		
+%		\begin{column}{0.65\textwidth}
+%			\begin{itemize}
+%				\item very small dimensions
+%				\item 150 flowers
+%				\item 4 continuous features (petal width and sepal length)
+%				\item 3 classes: setosa, versicolor, virginica
+%				\item perfectly balanced (50-50-50)
+%			\end{itemize}
+%		\end{column}
+%	\end{columns}
+%\end{frame}
+%
+%\begin{frame}{Shuttle classification dataset}
+%	\begin{columns}
+%		\begin{column}{0.35\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[scale=0.75]{figures/shuttle.jpg}
+%			\end{figure}
+%		\end{column}
+%		
+%		\begin{column}{0.65\textwidth}
+%			\begin{itemize}
+%				\item originally: 58000 samples corresponding to aircrafts
+%				\item here: 14500 samples
+%				\item 9 numerical attributes
+%				\item 7 different types of shuttles: 2 of them contained less than 10 samples (discarded)
+%			\end{itemize}
+%		\end{column}
+%	\end{columns}
+%\end{frame}
+%
+%\begin{frame}{Nursery application dataset}
+%	\begin{columns}
+%		\begin{column}{0.35\textwidth}
+%			\begin{figure}
+%				\centering
+%				\includegraphics[scale=0.75]{figures/nursery.jpg}
+%			\end{figure}
+%		\end{column}
+%		
+%		\begin{column}{0.65\textwidth}
+%			\begin{itemize}
+%				\item 12960 samples (applications for nursery school)
+%				\item 8 categorical features
+%				\item 5 classes: not recommended, recommended, very recommended, priority and special priority
+%				\item only 2 samples were recommended (discarded)
+%			\end{itemize}
+%		\end{column}
+%	\end{columns}
+%\end{frame}
 
 {\setbeamertemplate{footline}{\leavevmode%
 		\hbox{%
