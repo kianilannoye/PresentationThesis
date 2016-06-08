@@ -174,14 +174,14 @@
 		\begin{itemize}
 			\item Headache journal: mobile app
 			\item Doctor Dashboard: web application
-			\item Machine learning module: auto-classify
+			\item Machine learning module: decision support
 		\end{itemize}
 		\ \newline
 		Solution non-functional requirements:
 		\begin{itemize}
 			\item Security
 			\item Availability
-			\item Performance
+			\item Performance \& learning curve
 			\item Usability
 		\end{itemize}
 \end{frame}
@@ -207,8 +207,8 @@
 	All good, but:
 	\pause
 	\begin{itemize}
-		\item none offers usable data export
 		\item none captures all data needed
+		\item none offers usable data export
 	\end{itemize} 
 \end{frame}
 %\subsection{Development paradigms}
@@ -498,12 +498,7 @@
 
 \begin{frame}{Decision space $\rightarrow$ decision tree}
 	\begin{block}{Converting decision spaces to decision trees}
-		One-to-one mapping from decision tree to space is lost during conversion because the order is lost. Therefore, a heuristic approach must be taken, identifying hyperplane candidates and calculating a metric to choose the `best' plane.
-	\end{block}
-	
-	
-	\begin{block}{Candidate hyperplanes}
-		In order for a plane to be the next candidate node, it must be unbounded in all dimensions but one.
+		One-to-one mapping from decision tree to space is lost during conversion because the order is lost. Therefore, a \textbf{heuristic} approach must be taken, identifying \textbf{hyperplane candidates} and calculating a metric to choose the `best' plane.
 	\end{block}
 \end{frame}
 
@@ -526,9 +521,9 @@
 	\begin{block}{Finding `best' candidate hyperplane}
 		Apply metric function to each plane, these include:
 		\begin{itemize}
-			\item information gain and Gini from C4.5 and CART respectively
-			\item pick plane from most correlated feature ($\chi^2$- and ANOVA $F$-test from QUEST)
-			\item pick plane that divide space in two most equal subspaces (using surface/volume or counting number of planes)
+			\item information gain and Gini
+			\item pick plane from most correlated feature
+			\item pick plane that divide space in two most equal subspaces
 			\item combination
 		\end{itemize}
 	\end{block}
@@ -575,6 +570,12 @@
 	\end{figure}
 \end{frame} }
 
+\begin{frame}{PopulationRanker}
+	\begin{block}{Fitness function}
+		A high accuracy is the most important property of a decision tree, followed by its' size ($\rightarrow$ comprehensibility). Genetic algorithms are well suited for \textbf{multi-objective optimization}.
+	\end{block}
+\end{frame}
+
 {\setbeamertemplate{footline}{}
 \begin{frame}{Final iteration}
 	\vspace{-1em}
@@ -583,10 +584,20 @@
 		\includegraphics[scale=1]{figures/final_iteration.png}
 	\end{figure}
 \end{frame} }
+
+\begin{frame}{Headache dataset}
+	Data collection could only start in March: \\
+	\begin{itemize}
+		\item the mobile application had to be finished first
+		\item an ethical committee had to approve our application
+	\end{itemize} \vspace{2em}
+	$\rightarrow$ too few samples for machine learning
+\end{frame}
+
 \begin{frame}
 	\begin{figure}
 		\centering
-			\includegraphics[width=\textwidth]{figures/chart_patients.pdf}
+			\includegraphics[width=\textwidth]{figures/chart_patients.png}
 	\end{figure}
 
 \end{frame}
@@ -756,7 +767,7 @@
 		}
 	\end{frame} }
 
-\section{Visualization}
+\section{Doctor dashboard}
 \begin{frame}{Doctor Dashboard}
 	\textbf{\Large Maarten Vanden Berghe}
 	\only<1>{
@@ -796,21 +807,30 @@
 
 % section concensusTeees (end)
 
-\begin{frame}<beamer> 
-  \frametitle{Bedankt}
-	  {\huge \color{ugentyellow} Bedank voor uw aandacht}\\
-	  No written word,
-	  
-	  No spoken plea,
-	  
-	  Can teach the youth what they should be,
-	  
-	  Nor all the books on all the shelves,
-	  
-	  It's what the teachers are themselves 
+
+\begin{frame}{Conclusion}
+	\begin{itemize}
+		\item It is shown that the current procces in the UH of Ghent can be completely digitized. Our solution can significantly improve the efficiency and reduce the frequency of consults, leading to a reduction
+		in health care costs. \vspace{2em}
+		\item The foundations for a diagnosis support system are built, using a genetic approach to merge different induced decision trees to obtain a single decision tree with enhanced accuracy.
+	\end{itemize}
 \end{frame}
 
-\begin{frame}<beamer> 
-	\footnotesize{\tableofcontents[hidesubsections]}
+\begin{frame}{Future work}
+	\begin{itemize}
+		\item Develop native applications for iOS and Android to enhance look-\&-feel
+		\item Re-evaluate our machine learning models on a larger headache dataset
+		\item Implement more induction algorithms and ensemble techniques to create a more diverse initial population
+		\item Experiment with other selection techniques
+		and fitness functions
+		\item Optimize the heuristic approach to convert decision spaces to decision trees
+	\end{itemize}
 \end{frame}
+
+{\setbeamertemplate{footline}{}
+\begin{frame}{Thank you for your attention!}
+	\scriptsize{\tableofcontents[hidesubsections]}
+\end{frame} }
+
+
 \end{document}
