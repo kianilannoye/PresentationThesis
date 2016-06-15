@@ -334,7 +334,7 @@
 		\begin{itemize}
 			\item Database
 			\item Connection to App
-			\item Connection to Docter Dashboard
+			\item Connection to Doctor Dashboard
 			\item Connection Machine learning module
 		\end{itemize}
 	\end{block}
@@ -509,6 +509,7 @@
 \begin{frame}{Merging decision spaces}
 	\frametitle<1>{Merging decision spaces}
 	\frametitle<3>{Pruning decision spaces}
+	\frametitle<4>{Pruning decision spaces}
 	\only<1>{
 		
 		\begin{figure}
@@ -523,13 +524,20 @@
 			\includegraphics[scale=1]{figures/merge_space_2.png}
 		\end{figure}
 	}
-	\onslide<3>{
+	\only<3>{
 		
 		\begin{figure}
 			\centering
 			\includegraphics[scale=1]{figures/pruning.png}
 		\end{figure}
 	}
+	\only<4>{
+			\begin{figure}
+				\centering
+				\includegraphics[scale=1]{figures/pre_space_to_dt.png}
+			\end{figure}
+	}
+	
 \end{frame}
 
 
@@ -552,6 +560,7 @@
 			\includegraphics[scale=1]{figures/space_to_dt.png}
 		\end{figure}	
 	}
+	
 \end{frame}
 
 \begin{frame}{Decision space $\rightarrow$ decision tree}
