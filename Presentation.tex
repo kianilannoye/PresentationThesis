@@ -82,7 +82,7 @@
 
 \title{Design of a diagnosis and follow-up platform for patients with chronic headaches}
 %\subtitle{Phylogeny Comparison}
-\author{Kiani Lannoye \& Gilles Vandewiele}
+\author{Kiani Lannoye \& Gilles Vandewiele\\ \ \\{Supervisors: Prof. dr. ir. S. Van Hoecke, Dr. ir. V. Keereman}\\{Counsellor: ing. O. Janssens}}
 \mode<beamer>{\institute{Faculty of Engineering and Architecture}}
 
 \begin{document}
@@ -116,28 +116,51 @@
 			};
 		\node<2-> {Headaches}
 		child[visible on=<3->] { 
-			node {Primary headaches} 
-				child[visible on=<5->] {
+			node {\color<4>{green}Primary headaches} 
+				child[visible on=<4->] {
 					node {Migraine}
-						child[visible on=<6->] {
+						child[visible on=<4->] {
 							node {Aura}
 						}
-						child[visible on=<6->]{
+						child[visible on=<4->]{
 							node {No aura}
 						}
 				}
-				child[visible on=<5->] {
+				child[visible on=<4->] {
 					node {Tension}
 				}
-				child[visible on=<5->] {
+				child[visible on=<4->] {
 					node {Cluster}
 				}
 		}
-		child[visible on=<4->] { node {Secondary headaches}};
+		child[visible on=<3->] { node {Secondary headaches}};
 		\end{tikzpicture}
 	\end{figure}
 \end{frame}
 \subsection{Current process Ghent University Hospital}
+
+\begin{frame}{Current process at Ghent UH}
+	\only<1>{
+		\begin{figure}[!h]
+			\includegraphics[width=0.5\textwidth]{figures/UZ_initial_call.pdf}
+		\end{figure}
+	}
+	\only<2>{
+		\begin{figure}[!h]
+			\includegraphics[width=0.5\textwidth]{figures/UZ_first_consult.pdf}
+		\end{figure}
+	}
+	\only<3>{
+		\begin{figure}[!h]
+			\includegraphics[width=0.5\textwidth]{figures/UZ_second_consult.pdf}
+		\end{figure}
+	}	
+	\only<4>{
+		\begin{figure}[!h]
+			\includegraphics[width=0.5\textwidth]{figures/UZ_final.pdf}
+		\end{figure}
+	}
+\end{frame}
 
 \begin{frame}{Current process Ghent University Hospital}
 	Current process at Ghent University Hospital is:
@@ -148,12 +171,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\framesubtitle{Current process at Ghent University Hospital}
-	\begin{figure}[!h]
-		\includegraphics[width=0.5\textwidth]{figures/UZ_patient.pdf}
-	\end{figure}
-\end{frame}
+
 
 \begin{frame}
 	So there is need for a better (digital) alternative! This alternative has to:
@@ -631,23 +649,6 @@
 	\end{figure}
 \end{frame} }
 
-\begin{frame}{Headache dataset}
-	Data collection could only start in March: \\
-	\begin{itemize}
-		\item the mobile application had to be finished first
-		\item an ethical committee had to approve our application
-	\end{itemize} \vspace{2em}
-	$\rightarrow$ too few samples for machine learning
-\end{frame}
-
-\begin{frame}
-	\begin{figure}
-		\centering
-			\includegraphics[width=\textwidth]{figures/chart_patients.pdf}
-	\end{figure}
-
-\end{frame}
-
 \begin{frame}{Evaluating our algorithm}
 	\begin{block}{}
 		5 datasets from UCI \\
@@ -770,6 +771,7 @@
 %	\end{columns}
 %\end{frame}
 
+
 {\setbeamertemplate{footline}{\leavevmode%
 		\hbox{%
 			\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
@@ -812,6 +814,19 @@
 			\end{figure}
 		}
 	\end{frame} }
+\begin{frame}{Headache dataset}
+	\begin{block}{Promissing results}
+		Test algorithm on headache dataset
+	\end{block}	
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{figures/chart_patients.pdf}
+	\end{figure}
+	
+\end{frame}
 
 \section{Doctor dashboard}
 \begin{frame}{Doctor dashboard}
