@@ -82,8 +82,8 @@
 
 \title{Design of a diagnosis and follow-up platform for patients with chronic headaches}
 %\subtitle{Phylogeny Comparison}
-\author{Kiani Lannoye \& Gilles Vandewiele\\ \ \\{Supervisors: Prof. dr. ir. S. Van Hoecke, Dr. ir. V. Keereman}\\{Counsellor: ing. O. Janssens}}
-\mode<beamer>{\institute{Faculty of Engineering and Architecture}}
+\author{\scriptsize Kiani Lannoye \& Gilles Vandewiele\\ \ \\{\scriptsize \vspace{1em} Supervisors: prof. dr. ir. Sofie Van Hoecke, dr. ir. Vincent Keereman}\\{\scriptsize Counsellor: ing. Olivier Janssens}}
+\mode<beamer>{\institute{\scriptsize \vspace{2em} Faculty of Engineering and Architecture}}
 
 \begin{document}
 \begin{frame}
@@ -185,29 +185,32 @@
 \section{Platform requirements}
 \label{sec:platform_req}
 \begin{frame}
-	\frametitle{Platform requirements}
-
-
-		Our proposed alternative consists of:
-		\begin{itemize}
-			\item Headache journal: mobile app
-			\item Doctor Dashboard: web application
-			\item Machine learning module: decision support
-		\end{itemize}
-		\ \newline
-		Solution non-functional requirements:
-		\begin{itemize}
-			\item Security
-			\item Availability
-			\item Performance \& learning curve
-			\item Usability
-		\end{itemize}
-\end{frame}
-\begin{frame}
 		\frametitle{Platform requirements}
-		\begin{figure}[!h]
-			\includegraphics[width=\textwidth]{figures/system_analysis.png}
-		\end{figure}	
+			\only<1>{
+				\begin{figure}[!h]
+					\includegraphics[width=\textwidth]{figures/system_analysis_1.png}
+				\end{figure}
+			}
+			\only<2>{
+				\begin{figure}[!h]
+					\includegraphics[width=\textwidth]{figures/system_analysis_2.png}
+				\end{figure}
+			}
+			\only<3>{
+				\begin{figure}[!h]
+					\includegraphics[width=\textwidth]{figures/system_analysis_3.png}
+				\end{figure}	
+			}	
+			\only<4>{
+				\begin{figure}[!h]
+					\includegraphics[width=\textwidth]{figures/system_analysis.png}
+				\end{figure}	
+			}
+			\only<5>{
+				\begin{figure}[!h]
+					\includegraphics[width=\textwidth]{figures/system_analysis_text.png}
+				\end{figure}	
+			}
 	
 \end{frame}
 % section Platform requirements (end)
@@ -390,7 +393,7 @@
 		\end{itemize}
 	\end{block}
 \end{frame}
-\begin{frame}{Genetic merging of DT's}
+\begin{frame}{Many different DT induction algorithms}
 	\begin{columns}
 		\begin{column}{0.25\textwidth}
 			\centering
@@ -510,6 +513,14 @@
 \end{frame}
 
 \subsection*{Merging different DT's}
+
+{\setbeamertemplate{footline}{}
+\begin{frame}{An ensemble technique WITH interpretability}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{figures/DT_DS_overview.png}
+	\end{figure}
+\end{frame} }
 
 \begin{frame}{Decision tree $\rightarrow$ decision space}
 	\begin{block}{Converting decision trees to decision spaces}
@@ -814,13 +825,9 @@
 			\end{figure}
 		}
 	\end{frame} }
-\begin{frame}{Headache dataset}
-	\begin{block}{Promissing results}
-		Test algorithm on headache dataset
-	\end{block}	
-\end{frame}
 
-\begin{frame}
+\begin{frame} {Headache dataset}
+	\vspace{-2.5em}
 	\begin{figure}
 		\centering
 		\includegraphics[width=\textwidth]{figures/chart_patients.pdf}
@@ -884,11 +891,24 @@
 
 
 \begin{frame}{Conclusion}
+	The current process in the UH of Ghent can be completely digitized:
 	\begin{itemize}
-		\item It is shown that the current process in the UH of Ghent can be completely digitized. Our solution can significantly improve the efficiency and reduce the frequency of consults, leading to a reduction
-		in health care costs. \vspace{2em}
-		\item The foundations for a diagnosis support system are built, using a genetic approach to merge different induced decision trees to obtain a single decision tree with enhanced accuracy.
+		\item Collect information using a mobile application \\
+		$\rightarrow$ More efficient than paper calendars
+		\item Present the data through a web application \\
+		$\rightarrow$ Visualizations allow to process a lot of information quickly
 	\end{itemize}
+	This leads to an increased efficiency and reduced frequency of consults, resulting in lower health care costs.
+\end{frame}
+
+\begin{frame}{Conclusion}
+	A new ensemble technique was developed and tested on very varying datasets:
+	\begin{itemize}
+		\item increases classification performance
+		\item preserves excellent interpretability in contrast to current ones \\
+		$\rightarrow$ Can easily be visualized
+	\end{itemize}
+	When a higher number of headache patients are registered in our system, the resulting decision tree can be used to support physicians in forming a diagnosis
 \end{frame}
 
 \begin{frame}{Future work}
