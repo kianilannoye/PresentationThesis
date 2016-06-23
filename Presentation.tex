@@ -381,6 +381,17 @@
 		}
 	\end{figure}
 \end{frame}
+\begin{frame}{}
+	\begin{enumerate}
+		\item \textbf{Introduction} \\
+		\scriptsize Why white box models? - Flaws of current approaches \normalsize
+		\item  \textbf{Decision tree merging} \\
+		\scriptsize Merging decision trees in a single, interpretable tree \normalsize
+		\item  \textbf{Genetic approach} \\
+		\item  \textbf{Evaluation} \\
+		\scriptsize Used datasets - Results - Our headache dataset \normalsize
+	\end{enumerate}
+\end{frame}
 \subsection*{Introduction}
 \begin{frame}{Machine Learning}
 	\only<2>{}
@@ -512,7 +523,7 @@
 	
 \end{frame}
 
-\subsection*{Merging different DT's}
+\subsection*{Decision tree merging}
 
 {\setbeamertemplate{footline}{}
 \begin{frame}{An ensemble technique WITH interpretability}
@@ -572,7 +583,7 @@
 
 \begin{frame}{Decision space $\rightarrow$ decision tree}
 	\begin{block}{Converting decision spaces to decision trees}
-		One-to-one mapping from decision tree to space is lost during conversion because the order is lost. Therefore, a \textbf{heuristic} approach must be taken, identifying \textbf{hyperplane candidates} and calculating a metric to choose the `best' plane.
+		One-to-one mapping from decision tree to space is gone because the order is lost during conversion from DT to DS. Therefore, a \textbf{heuristic} approach must be taken, identifying \textbf{hyperplane candidates} and calculating a metric to choose the `best' plane.
 	\end{block}
 \end{frame}
 
@@ -603,6 +614,20 @@
 		\end{itemize}
 	\end{block}
 	
+\end{frame}
+
+{\setbeamertemplate{footline}{}
+	\begin{frame}{RECAP}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{figures/DT_DS_overview.png}
+		\end{figure}
+	\end{frame} }
+	
+\begin{frame}{But which decision trees to merge?}
+	Many different algorithms $\rightarrow$ Trying all combinations takes time \\
+	\vspace{2em}
+    $\rightarrow$	Genetic algorithms to the rescue!
 \end{frame}
 
 
@@ -659,6 +684,8 @@
 		\includegraphics[scale=1]{figures/final_iteration.png}
 	\end{figure}
 \end{frame} }
+
+\subsection*{Evaluation}
 
 \begin{frame}{Evaluating our algorithm}
 	\begin{block}{}
