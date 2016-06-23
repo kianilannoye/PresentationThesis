@@ -396,7 +396,7 @@
 \subsection*{Introduction}
 \begin{frame}{Machine Learning}
 	\only<2>{}
-	Decision support ($\neq$ decision making) $\Rightarrow$ White box model
+	Critical domain $\Rightarrow$ Decision support ($\neq$ making) $\Rightarrow$ White box
 	\begin{block}{Possible models}
 		\begin{itemize}
 			\item {\color<2>{green} Decision trees}
@@ -536,7 +536,8 @@
 
 \begin{frame}{Decision tree $\rightarrow$ decision space}
 	\begin{block}{Converting decision trees to decision spaces}
-		We can define a one-to-one mapping between a decision tree and a set of $k$-dimensional hyperplanes ($k$ = $\#$features), called \textbf{decision~space}.	Each node in the decision tree corresponds to a hyperplane in the decision space.
+		We can define a one-to-one mapping between a decision tree and a set of $k$-dimensional hyperplanes ($k$ = $\#$features), called \textbf{decision~space}. \\
+		\vspace{1em} Each node in the decision tree corresponds to a hyperplane in the decision space.
 	\end{block}
 \end{frame}
 
@@ -584,7 +585,8 @@
 
 \begin{frame}{Decision space $\rightarrow$ decision tree}
 	\begin{block}{Converting decision spaces to decision trees}
-		One-to-one mapping from decision tree to space is gone because the order is lost during conversion from DT to DS. Therefore, a \textbf{heuristic} approach must be taken, identifying \textbf{hyperplane candidates} and calculating a metric to choose the `best' plane.
+		One-to-one mapping from decision tree to space is gone because the order is lost during conversion from DT to DS. \\
+		\vspace{1em} Therefore, a \textbf{heuristic} approach must be taken, identifying \textbf{hyperplane candidates} and calculating a metric to choose the `best' plane.
 	\end{block}
 \end{frame}
 
@@ -628,7 +630,7 @@
 \begin{frame}{But which decision trees to merge?}
 	Many different algorithms $\rightarrow$ Trying all combinations takes time \\
 	\vspace{2em}
-    $\rightarrow$	Genetic algorithms to the rescue!
+    $\Rightarrow$	Genetic algorithm to the rescue!
 \end{frame}
 
 
@@ -673,7 +675,9 @@
 
 \begin{frame}{PopulationRanker}
 	\begin{block}{Fitness function}
-		A high accuracy is the most important property of a decision tree, followed by its' size ($\rightarrow$ comprehensibility). Genetic algorithms are well suited for \textbf{multi-objective optimization}.
+		A high accuracy is the most important property of a decision tree, followed by its' size ($\rightarrow$ comprehensibility). \\
+		\vspace{1em}
+		Genetic algorithms are well suited for \textbf{multi-objective optimization}.
 	\end{block}
 \end{frame}
 
